@@ -20,5 +20,23 @@ public class PalindromeCheckerApp {
 
         System.out.println("UC2 Result : " + isPalindrome1);
         System.out.println();
+
+        // ===== UC3 =====
+        String input2 = "madam";
+        String reversed = "";
+
+        for (int i = input2.length() - 1; i >= 0; i--) {
+            reversed = reversed + input2.charAt(i);
+        }
+
+        System.out.println("UC3 - Original Text : " + input2);
+        System.out.println("UC3 - Reversed Text : " + reversed);
+
+        if (input2.equals(reversed)) {
+            System.out.println("UC3 - Result : It is a Palindrome");
+        } else {
+            System.out.println("UC3 - Result : It is NOT a Palindrome");
+        }
+
     }
 }
