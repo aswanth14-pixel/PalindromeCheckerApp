@@ -86,5 +86,27 @@ public class PalindromeCheckerApp {
         }
         System.out.println("UC5 Input : " + input4);
         System.out.println("UC5 Result : " + isPalindrome4);
+
+        // ===== UC6 =====
+        String input = "civic";
+
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack_uc6 = new Stack<>();
+
+        for (char c : input.toCharArray()) {
+            queue.add(c);
+            stack_uc6.push(c);
+        }
+
+        boolean isPalindrome = true;
+
+        while (!queue.isEmpty()) {
+            if (queue.remove() != stack_uc6.pop()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
