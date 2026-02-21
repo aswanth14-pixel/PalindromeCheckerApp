@@ -1,4 +1,8 @@
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
 public class PalindromeCheckerApp {
+
     public static void main(String[] args) {
 
         // ===== UC1: Application Entry =====
@@ -58,5 +62,29 @@ public class PalindromeCheckerApp {
         System.out.println("UC4 Input : " + input3);
         System.out.println("UC4 Result : " + isPalindrome3);
 
+        // ===== UC5 =====
+        String input4 = "noon";
+
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : input4.toCharArray()) {
+
+            stack.push(c);
+
+        }
+        boolean isPalindrome4 = true;
+
+        for (char c : input4.toCharArray()) {
+
+            if (c != stack.pop()) {
+
+                isPalindrome4 = false;
+
+                break;
+
+            }
+        }
+        System.out.println("UC5 Input : " + input4);
+        System.out.println("UC5 Result : " + isPalindrome4);
     }
 }
