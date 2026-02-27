@@ -2,28 +2,34 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "madam";
+        String input = "A man a plan a canal Panama";
 
-        boolean isPalindrome = isPalindromeRecursive(input, 0, input.length() - 1);
 
-        System.out.println("Input : " + input);
+        String normalized = input
+                .toLowerCase()                 // ignore case
+                .replaceAll("\\s+", "");       // remove spaces
+
+
+        boolean isPalindrome = isPalindrome(normalized);
+
+        System.out.println("Original Input : " + input);
+        System.out.println("Normalized     : " + normalized);
         System.out.println("Is Palindrome? : " + isPalindrome);
     }
 
-    // Recursive method
-    private static boolean isPalindromeRecursive(String str, int start, int end) {
+    private static boolean isPalindrome(String str) {
 
-        // Base Case 1: If pointers cross or meet
-        if (start >= end) {
-            return true;
+        int start = 0;
+        int end = str.length() - 1;
+
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
         }
 
-        // If characters don't match
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call shrinking the problem
-        return isPalindromeRecursive(str, start + 1, end - 1);
+        return true;
     }
 }
