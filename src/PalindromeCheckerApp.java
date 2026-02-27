@@ -2,22 +2,26 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "A man a plan a canal Panama";
+        String input = "racecar";
 
+        // Create service object
+        PalindromeChecker checker = new PalindromeChecker();
 
-        String normalized = input
-                .toLowerCase()                 // ignore case
-                .replaceAll("\\s+", "");       // remove spaces
+        boolean result = checker.checkPalindrome(input);
 
-
-        boolean isPalindrome = isPalindrome(normalized);
-
-        System.out.println("Original Input : " + input);
-        System.out.println("Normalized     : " + normalized);
-        System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + result);
     }
+}
 
-    private static boolean isPalindrome(String str) {
+class PalindromeChecker {
+
+    // Public method exposed to client
+    public boolean checkPalindrome(String str) {
+
+        if (str == null) {
+            return false;
+        }
 
         int start = 0;
         int end = str.length() - 1;
